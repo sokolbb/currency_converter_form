@@ -32,8 +32,6 @@ public class FileHandler {
 		CloseableHttpClient httpClient = HttpClients.createDefault();
 		HttpGet request = new HttpGet(url);
 
-		// TODO implement filename based on date to prevent downloading file every time
-		// call is made
 		File file = new File(savePath + filename);
 		try (CloseableHttpResponse response = httpClient.execute(request)) {
 			if (response != null && response.getStatusLine() != null) {

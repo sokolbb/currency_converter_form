@@ -15,6 +15,12 @@ public class Currency {
 	public Currency() {
 	}
 	
+	public Currency(Currency currency) {
+		this.id = currency.getId();
+		this.currencyName = currency.getCurrencyName();
+		this.referenceRate = currency.getReferenceRate();
+	}
+	
 	public Currency(int id, String currencyName) {
 		this.id = id;
 		this.currencyName = currencyName;

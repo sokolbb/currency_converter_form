@@ -19,7 +19,9 @@ public class UserInputChecker {
 	 * @param dateStr date as String
 	 * 
 	 */
-	public void dateFormatChecker(String dateStr) {
+	public LocalDate dateFormatChecker(String dateStr) {
+		
+		LocalDate result = null;
 		if (dateStr == null || dateStr.isEmpty() || dateStr.trim().isEmpty()) {
 			throw new WebApplicationException(
 					Response.status(Status.BAD_REQUEST).entity("Date has to be provided as input ").build());
@@ -27,12 +29,13 @@ public class UserInputChecker {
 
 		try {
 			//If parsing returns exception is means format was incorrect
-			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-			LocalDate.parse(dateStr, formatter);
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern(Consts.DATE_FORMAT);
+			result = LocalDate.parse(dateStr, formatter);
 		} catch (DateTimeParseException e) {
 			throw new WebApplicationException(Response.status(Status.BAD_REQUEST)
 					.entity("Couldn't parse date string: " + e.getMessage()).build());
 		}
+		return result;
 	}
 
 	/**

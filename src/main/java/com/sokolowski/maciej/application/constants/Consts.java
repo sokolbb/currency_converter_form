@@ -17,4 +17,7 @@ public final class Consts {
 	//Details to handle data
 	public final static String REGEX_TO_SPLIT_CURRENCY = ",";
 	public final static String CURRENCY_INPUT_REGEX = "[a-zA-Z]{3}";
+	
+	//Date pattern
+	public final static String DATE_FORMAT = "yyyy-MM-dd"; 
 }
